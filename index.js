@@ -42,7 +42,7 @@ const sketch = (s) => {
       // Comment the following line out if you want to see all the messages
       // elektron.live is sending out
 
-      console.log(message)
+      // console.log(message)
 
       // We are looking for IMAGE message to get the audience image frames
       // By default we are receiving images from all users. If you want
