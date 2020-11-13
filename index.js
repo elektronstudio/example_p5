@@ -1,4 +1,4 @@
-// To run the example, visit https://elektron.live/residence 
+// To run the example, visit https://elektron.live/residence
 // and turn on your camera
 
 import Websocket from "https://cdn.skypack.dev/reconnecting-websocket";
@@ -50,11 +50,7 @@ const sketch = (s) => {
       //
       // && message.userName === 'username-you-want'
 
-      if (
-        message &&
-        message.type === "IMAGE" &&
-        message.channel === channel
-      ) {
+      if (message && message.type === "IMAGE" && message.channel === channel) {
         // Get the encoded image from the Websocket message
         // and create a p5 image out of it
         const rawImage = new Image();
@@ -82,7 +78,7 @@ const sketch = (s) => {
   s.mousePressed = () => {
     image.loadPixels();
 
-    // Send the image 
+    // Send the image
 
     socket.send(
       createMessage({
@@ -90,7 +86,7 @@ const sketch = (s) => {
         userName,
         channel,
         type: "IMAGE",
-        value: image.canvas.toDataURL()
+        value: image.canvas.toDataURL(),
       })
     );
 
@@ -102,7 +98,7 @@ const sketch = (s) => {
         userName,
         channel,
         type: "CHAT",
-        value: "A new audience image is posted"
+        value: "A new audience image is posted",
       })
     );
   };
@@ -128,14 +124,14 @@ const createMessage = (message) => {
     userId: "",
     userName: "",
     value: "",
-    ...message
+    ...message,
   });
 };
 
-function safeJsonParse(str) {
+const safeJsonParse = (str) => {
   try {
     return JSON.parse(str);
   } catch (err) {
     return null;
   }
-}
+};
